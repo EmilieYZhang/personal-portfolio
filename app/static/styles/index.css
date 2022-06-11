@@ -117,8 +117,8 @@ body {
 }
 
 .profile_icon img {
-    height: clamp(0.2rem, 28vh, 30vh);
-    min-width: clamp(0.2rem, 28vh, 30vh);
+    height: clamp(1rem, 35vh, 50vh);
+    min-width: clamp(1rem, 35vh, 50vh);
     border: 7px solid white;
     border-radius: 50%;
 }
