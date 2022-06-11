@@ -1,10 +1,10 @@
-# PE Track: Week 1 - TEAM PYTHONIC - Portfolio Site
+# PE Track: Week 2 - Emilie Zhang - Portfolio Site
 
 ## Introduction
 
-TEAM PYTHONIC is from Pod 22.SUM.21 of the Production Engineering Track at MLH Fellowship.  
+Previously, I created a team portfolio with TEAM PYTHONIC from Pod 22.SUM.21 of the Production Engineering Track at MLH Fellowship.
 
-For week 1, we made a reusable, modular and interactive team portfolio with an enjoyable user interface and a variety of multimedia components. We explored new technologies in Web Development (Flask, Jinja, Google Maps API), learned GitHub best practices to collaborate as a team, and also learned to write more modular, scalable and well-documented code.
+For week 2, I have forked the original repo and I plan to personalize the team portfolio then host it via Digital Ocean with the creation of a droplet.
 
 ## Badges
 
@@ -43,22 +43,7 @@ Cards with relevant profile sections, including:
 
 ##### Landing page
 
-![Landing Page](https://user-images.githubusercontent.com/68432655/171975341-1461f565-c145-4f11-a82a-af86d4897b87.png)
-
-##### Landing page on mobile
-![Mobile View](https://media3.giphy.com/media/zVBElqBkpg61CXv4ez/giphy.gif?cid=790b7611f18f91cd5142c625c549382215ac1fa7f4af6bfd&rid=giphy.gif&ct=g)
-
-##### Profile page on mobile
-![Profile Mobile View](https://i.imgur.com/XQ8UWGP.png)
-
-## Technologies used in the project
-
-- The Python microframework Flask
-- HTML/CSS and Bootstrap
-- Jinja for templating (injecting Python code into HTML)
-- JSON for storing our data
-- JavaScript for the menu dropdown and map creation
-- Google Maps API in JavaScript to mark locations visited in each profile page
+![image](https://user-images.githubusercontent.com/68432655/173205711-f83f84a7-7b5c-494d-ac07-bc4b6eebd045.png)
 
 ## File Structure
 
@@ -175,6 +160,4 @@ Note: Our team has ensured that we created an issue for each task, we used a new
 
 ## Authors
 * Emilie Zhang ([EmilieYZhang](https://github.com/EmilieYZhang))
-* Hanna Gersten ([Hgersten-hash](https://github.com/Hgersten-hash))
-* Emily Lim ([emilyllim](https://github.com/emilyllim))
-* Juan Escalada ([jescalada](https://github.com/jescalada))
+* Forked repository from TEAM Pythonic's team portfolio
