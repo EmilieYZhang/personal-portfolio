@@ -2,9 +2,9 @@
 
 ## Introduction
 
-As part of TEAM PYTHONIC from Pod 22.SUM.21 of the Production Engineering Track at MLH Fellowship, I have forked our previous project to personalize.
+Previously, I created a team portfolio with TEAM PYTHONIC from Pod 22.SUM.21 of the Production Engineering Track at MLH Fellowship.
 
-For week 2, I plan to personalize the team portfolio then host it via Digital Ocean with the creation of a droplet.
+For week 2, I have forked the original repo and I plan to personalize the team portfolio then host it via Digital Ocean with the creation of a droplet.
 
 ## Badges
 
