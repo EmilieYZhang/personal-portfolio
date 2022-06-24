@@ -2,12 +2,22 @@ import os
 import json
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+from peewee import *
 
 load_dotenv()  # Loads the environment variables from the .env file
 
 app = Flask(__name__)  # Initializes a Flask app
 
 os.getenv("API_KEY")  # Obtains the value of the .env variable containing the Google Maps API key
+
+mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
+    host=os.getenv("MYSQL_HOST"),
+    port=3306
+)
+
+print(mydb)
 
 # Route for the landing page
 @app.route('/')
