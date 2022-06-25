@@ -58,6 +58,15 @@ def profile(name):
     else:
         return index()
 
+# Rout for timeline post page
+@app.route('/timeline')
+def timeline():
+    post_database = [
+        model_to_dict(p)
+        for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+    ]
+    return render_template('timeline.html', title="Timeline", post_database=post_database)
+
 # Route for handling 404 errors
 @app.errorhandler(404)
 def not_found(e):
@@ -112,3 +121,6 @@ def delete_time_line_post(id):
     except:
         message="An error occured when deleting\n"
     return message
+
+if __name__ == "__main__":
+    app.run(debug=True)
