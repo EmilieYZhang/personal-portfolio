@@ -101,3 +101,14 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+
+# DELETE endpoint to delete specific posts from timeline
+@app.route('/api/timeline_post/<id>', methods=['DELETE'])
+def delete_time_line_post(id):
+    try:
+        post_to_delete = TimelinePost.get(TimelinePost.id == id)
+        post_to_delete.delete_instance()
+        message="Post deleted\n"
+    except:
+        message="An error occured when deleting\n"
+    return message
