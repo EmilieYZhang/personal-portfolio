@@ -58,7 +58,7 @@ def profile(name):
     else:
         return index()
 
-# Rout for timeline post page
+# Route for timeline post page
 @app.route('/timeline')
 def timeline():
     post_database = [
