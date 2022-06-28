@@ -75,7 +75,6 @@
                 <input name="email" placeholder="Email" type="email">
                 <input name="content" placeholder="Content" type="text">
                 <button type="submit"> Submit </button>
-
               </form>
             </div>
           </div>
@@ -90,6 +89,7 @@
                   <h5 class="card-title">{{ post['name'] }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">{{ post['email'] }}</h6>
                   <p class="card-text">{{ post['content'] }}</p>
+                  <button type="submit" name= "{{ post['id'] }}" onclick="deletepost(name)"> Delete post </button>
                 </div>
                 <div class="card-footer text-muted">{{ post['created_at'] }}</div>
               </div>
@@ -102,28 +102,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
 </script>
-<script>
-  const form = document.getElementById('timeline-form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const prePayload = new FormData(form);
-    const payload = new URLSearchParams(prePayload);
-
-    console.log([...payload])
-
-    fetch('/api/timeline_post', {
-      method: "POST",
-      body: payload,
-    })
-    .then(res => res.json())
-    .then(data => {
-    console.log(data)
-    form.reset(); // form reset
-    location.reload() // reload page to display new data
-    })
-    .catch(err => console.log(err));
-  })
-</script>
+<script src="../static/scripts/timeline.js"></script>
 <script src="../static/scripts/profile.js"></script>
 </html>
