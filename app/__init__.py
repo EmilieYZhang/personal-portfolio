@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
+import re
 
 load_dotenv()  # Loads the environment variables from the .env file
 
@@ -12,13 +13,18 @@ app = Flask(__name__)  # Initializes a Flask app
 
 os.getenv("API_KEY")  # Obtains the value of the .env variable containing the Google Maps API key
 
-# Connect to the database using MySQLDatabase function from peewee
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=3306
-)
+# if testing, set db to in-memory sqlite db
+if os.getenv("TESTING") == "true":
+    print("Running in test mode")
+    mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+else:
+    # Connect to the database using MySQLDatabase function from peewee
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        host=os.getenv("MYSQL_HOST"),
+        port=3306
+    )
 
 print(mydb)
 
@@ -93,12 +99,25 @@ def load_profiles_from_json(filename) -> dict:
 # POST route which adds a timeline post:
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-    name = request.form['name']
+    try: # check if name exists in the request
+        name = request.form['name']
+    except: # otherwise return 400 status code with message 
+        return "Invalid name", 400 
     email = request.form['email']
     content = request.form['content']
-    timeline_post = TimelinePost.create(name=name, email=email, content=content)
 
-    return model_to_dict(timeline_post)
+    # regex to check for valid email addresses
+    check_email = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    if not re.fullmatch(check_email, email):
+        return "Invalid email", 400
+
+    if name == "": # check if name is empty first
+        return "Invalid name", 400
+    elif content == "": # then check content
+        return "Invalid content", 400
+    else: # add post if both are valid
+        timeline_post = TimelinePost.create(name=name, email=email, content=content)
+        return model_to_dict(timeline_post)
 
 # GET endpoint to retrieve all timeline posts ordered by created_at descending
 # newest timeline posts returned at the top
