@@ -111,11 +111,13 @@ def post_time_line_post():
     if not re.fullmatch(check_email, email):
         return "Invalid email", 400
 
-    if content != "": # if content isn't empty, add post
+    if name == "": # check if name is empty first
+        return "Invalid name", 400
+    elif content == "": # then check content
+        return "Invalid content", 400
+    else: # add post if both are valid
         timeline_post = TimelinePost.create(name=name, email=email, content=content)
         return model_to_dict(timeline_post)
-    else:
-        return "Invalid content", 400
 
 # GET endpoint to retrieve all timeline posts ordered by created_at descending
 # newest timeline posts returned at the top
