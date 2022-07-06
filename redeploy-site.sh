@@ -4,10 +4,10 @@ cd personal-portfolio
 
 git fetch && git reset origin/main --hard
 
-source python3-virtualenv/bin/activate
-
-pip install -r requirements.txt
-
 echo #all the environment variables >> .env
 
-systemctl restart myportfolio
+# Spin containers down to prevent out of memory issues
+docker compose -f docker-compose.prod.yml down
+
+# build new docker container
+docker compose -f docker-compose.prod.yml up -d --build
