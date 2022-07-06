@@ -1,0 +1,39 @@
+version: "3"
+services:
+  myportfolio:
+    container_name: myportfolio
+    build: .
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mysql
+    image: mariadb
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mydatabase:/var/lib/mysql
+
+  nginx:
+    container_name: nginx
+    image: jonasal/nginx-certbot
+    restart: always
+    environment: # env variable to generate certificates
+      - CERTBOT_EMAIL=name@example.com
+    ports: # Bind HTTP/HTTPS ports to internet
+      - 80:80
+      - 443:443
+    volumes: # store generated certificate files in volume so they are not lost upon restart
+      - nginx_secrets:/etc/letsencrypt
+        # map nginx config files under directory user_conf.d into the container
+      - ./user_conf.d:/etc/nginx/user_conf.d
+    depends_on:
+      - myportfolio
+
+volumes:
+  mydatabase:
+  nginx_sercrets:
