@@ -22,14 +22,13 @@ services:
     container_name: nginx
     image: jonasal/nginx-certbot
     restart: always
-    environment: # env variable to generate certificates
+    environment:
       - CERTBOT_EMAIL=name@example.com
-    ports: # Bind HTTP/HTTPS ports to internet
+    ports:
       - 80:80
       - 443:443
-    volumes: # store generated certificate files in volume so they are not lost upon restart
+    volumes:
       - nginx_secrets:/etc/letsencrypt
-        # map nginx config files under directory user_conf.d into the container
       - ./user_conf.d:/etc/nginx/user_conf.d
     depends_on:
       - myportfolio
