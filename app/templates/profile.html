@@ -79,7 +79,7 @@
             <div class="card-header">Projects</div>
             <div class="card-body">
               {% for project in info['projects'] %}
-              <h5 class="card-title">{{ project['projName'] }}</h5>
+              <h5 class="card-title"> <a href="{{ project['projlink'] }}" style="text-decoration:none; color:#3388C5;">{{ project['projName'] }}</a></h5>
               <p class="card-text">{{ project['projDesc'] }}</p>
               {% endfor %}
             </div>
