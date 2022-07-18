@@ -1,9 +1,9 @@
   const form = document.getElementById('timeline-form');
   form.addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault(); // prevent default behaviour
 
     const prePayload = new FormData(form);
-    const payload = new URLSearchParams(prePayload);
+    const payload = new URLSearchParams(prePayload); // convert object to URL-endoded string
 
     console.log([...payload])
 
@@ -11,7 +11,13 @@
       method: "POST",
       body: payload,
     })
-    .then(res => res.json()) // server response, convert to javascript object
+    .then(res => {
+      if (res.status == 400) {
+        res.text().then(errorMessage => alert(errorMessage))
+      } else {
+        return res.json()
+      }
+    }) // server response, convert to javascript object
     .then(data => {
     console.log(data)
     form.reset(); // form reset
