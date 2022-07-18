@@ -29,5 +29,5 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
       
       - name: Deploy site
-        run: ssh my-vm '~/redeploy-site.sh && docker-compose ps'
+        run: ssh my-vm '~/redeploy-site.sh && docker compose ps'
         # connecting to VM using ssh my-vm, cd and prints pwd
