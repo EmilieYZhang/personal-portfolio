@@ -1,0 +1,32 @@
+name: Run Tests # Define name of Github Actions workflow
+on: # Trigger workflow on push and PR to main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test: # Create Run tests job running on latest Ubuntu VM
+    runs-on: ubuntu-latest
+    name: Run Tests
+    env: # Add env variable necessary to run tests
+      TESTING: true
+    steps: # Define all steps to run tests
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.4'
+      
+      - name: Setup Python Virtual Environment
+        run: python -m venv python3-virtualenv
+      
+      - name: Install Dependencies
+        run: python3-cirtualenv/bin/pip install -r requirements.txt
+      
+      - name: Run Tests
+        run: ./run_test.sh
