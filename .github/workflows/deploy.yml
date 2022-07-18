@@ -9,7 +9,7 @@ on: # only run when push to main on Github
 jobs:
   deploy:
     name: "Deploy to AWS EC2 Virtual Machine"
-    runs-one: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Configure SSH
         run: |
