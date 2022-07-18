@@ -4,10 +4,17 @@ on: # only run when push to main on Github
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ["Run Tests"]
+    branches: [main]
+    types:
+      - completed
+
   workflow_dispatch: # adds a "Run workflow" button in case of manual triggering
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: "Deploy to AWS EC2 Virtual Machine"
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +36,7 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
       
       - name: Deploy_site
-        run: ssh my-vm '~/edeploy-site.sh && cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
+        run: ssh my-vm '~/redeploy-site.sh && cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
         # connecting to VM using ssh my-vm, cd and prints pwd
       
       - name: Discord error Notification
