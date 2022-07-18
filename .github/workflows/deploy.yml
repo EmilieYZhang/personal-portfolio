@@ -28,12 +28,12 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
       
-      - name: Deploy site
+      - name: Deploy_site
         run: ssh my-vm '~/redeploy-site.sh && cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
         # connecting to VM using ssh my-vm, cd and prints pwd
       
       - name: Discord error Notification
-        if: failure() && steps.Deploy site.outcome != 'success'
+        if: failure() && steps.Deploy_site.outcome != 'success'
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"
 
       - name: Discord Notification
