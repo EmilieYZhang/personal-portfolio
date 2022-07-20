@@ -14,6 +14,8 @@
     .then(res => {
       if (res.status == 400) {
         res.text().then(errorMessage => alert(errorMessage))
+      } else if (res.status == 429) {
+        res.text().then(alert("You have reached the rate limit. 1 post per minute."))
       } else {
         return res.json()
       }
