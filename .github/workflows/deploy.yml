@@ -15,7 +15,7 @@ on: # only run when push to main on Github
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: "Deploy to AWS EC2 Virtual Machine"
+    name: "Deploy to VPS"
     runs-on: ubuntu-latest
     steps:
       - name: Configure SSH
@@ -24,7 +24,7 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key.pem
           chmod 600 ~/.ssh/deploy-key.pem
           cat >>~/.ssh/config <<END
-          Host my-vm
+          Host my-vps
             HostName $SSH_IP
             User $SSH_USER
             IdentityFile ~/.ssh/deploy-key.pem
@@ -36,7 +36,7 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
       
       - name: Deploy_site
-        run: ssh my-vm '~/redeploy-site.sh && cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
+        run: ssh my-vps '~/redeploy-site.sh && cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
         # connecting to VM using ssh my-vm, cd and prints pwd
       
       - name: Discord error Notification
