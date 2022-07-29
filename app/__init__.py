@@ -141,5 +141,19 @@ def delete_time_line_post(id):
         message="An error occured when deleting\n"
     return message
 
+@app.route('/health')
+def healthcheck():
+    # testing the nginx redirection, https redirection
+    code = urllib.urlopen("https://emilieportfolio.duckdns.org/").getcode()
+    print code
+	if code == 200:
+		print "Nginx test: Website up"
+	else:
+		print "Nginx test: Something is wrong!"
+    
+    # testing mysql container
+    # testing myportfolio container
+
+
 if __name__ == "__main__":
     app.run(debug=True)
