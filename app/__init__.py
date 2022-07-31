@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
-import re
+import urllib.request
 
 load_dotenv()  # Loads the environment variables from the .env file
 
@@ -144,13 +144,13 @@ def delete_time_line_post(id):
 @app.route('/health')
 def healthcheck():
     # testing the nginx redirection, https redirection
-    code = urllib.urlopen("https://emilieportfolio.duckdns.org/").getcode()
-    print code
-	if code == 200:
-		print "Nginx test: Website up"
-	else:
-		print "Nginx test: Something is wrong!"
-    
+    code = urllib.request.urlopen("https://emilieportfolio.duckdns.org/").getcode()
+    print(code)
+    if code == 200:
+        message="Nginx test: Website up"
+    else:
+        message="Nginx test: Something is wrong!"
+    return message
     # testing mysql container
     # testing myportfolio container
 
