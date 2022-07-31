@@ -19,6 +19,8 @@ __CI/CD:__ unittest python library, redeploy-site.sh bash script, Github Actions
 
 __Docker Containers:__ Reverse Proxy for SSL termination, Nginx for traffic redirection and rate limiting on POST endpoint per IP
 
+__Extra - Github Actions - Discord status notification:__ Github workflows are connect to personal Discord webhook. Sends a real-time message notifying developper of application build success status.
+
 ## Badges
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/MLH-Fellowship/project-team-pythonic)
