@@ -2,9 +2,22 @@
 
 ## Introduction
 
-Previously, I created a team portfolio with TEAM PYTHONIC from Pod 22.SUM.21 of the Production Engineering Track at MLH Fellowship.
+Previously, I created a team portfolio with TEAM PYTHONIC from Pod 22.SUM.21 of the Production Engineering Track at the MLH Fellowship.
 
-For week 2, I have forked the original repo and I plan to personalize the team portfolio then host it via Digital Ocean with the creation of a droplet.
+Week 2 and onwards, this repository was forked from the original repo for customization of a personal portfolio and using production engineering best practices to host, scale, CI/CD and troubleshoot the application. 
+
+In addition, this portfolio is hosted on a CentOS 8 Stream Digital Ocean Droplet. Accessible at: https://emilieportfolio.duckdns.org/
+
+#### Tech stack
+__Backend:__ Flask Python, Jinja, json, Google Maps API, MySQL database, POST/GET/DELETE endpoints
+
+__Frontend:__ HTML5/CSS, Javascript, Bootstrap framework
+
+__Monitoring Tools:__ Prometheus, Grafana, cAdvisor
+
+__CI/CD:__ unittest python library, redeploy-site.sh bash script, Github Actions workflows for Automated Continuous testing and deployment
+
+__Docker Containers:__ Reverse Proxy for SSL termination, Nginx for traffic redirection and rate limiting on POST endpoint per IP
 
 ## Badges
 
@@ -16,13 +29,13 @@ For week 2, I have forked the original repo and I plan to personalize the team p
 
 This is a reusable portfolio template which can be easily adapted to any number of team members. It is also mobile-friendly, which is an important feature considering that 50%+ of traffic on the web comes from mobile devices.
 
-Team Pythonic's portfolio website consists of two main components:
+This personal portfolio website consists of two main components:
 
 ###### Landing page
 
 - Animated heading text to display team name
 - Medium subheading, animated text to display team info
-- Profile pictures of each member which leads to their respective profile pages
+- Profile picture of each member which leads to their respective profile pages
 
 ###### Profile page
 
@@ -37,7 +50,7 @@ Cards with relevant profile sections, including:
 
 - Landing page with pop-up CSS animations when user hovers over main text
 - Fully responsive website that adjusts according to screen size and works on mobile screens
-- Animated menu bar for switching profiles
+- Animated menu bar for switching profiles or pages
 
 ## Visuals
 
@@ -121,7 +134,7 @@ You should get a response like this in the terminal:
 
 You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
 
-*Note: For now, the portfolio site will only work on your local machine while you have it running inside of your terminal. We plan to host it in the cloud in the next few weeks!* 
+*Note: The portfolio site will work on your local machine while you have it running inside of your terminal. The portfolio is also hosted in a DigitalOcean droplet and deployed with Docker containers, thus accessible at https://emilieportfolio.duckdns.org/* 
 
 ## Contributing
 
@@ -130,9 +143,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Tasks
-Each of the following tasks have been completed.
-
-Note: Our team has ensured that we created an issue for each task, we used a new branch for each issue and made corresponding pull requests.
+Each of the following tasks are suggestions and/or programming best practices.
 
 ### GitHub Tasks
 - [x] Create Issues for each task below
