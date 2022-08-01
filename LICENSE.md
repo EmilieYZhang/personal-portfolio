@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2022 TEAM PYTHONIC Juan Escalada, Emily Lim, Hanna Gersten and Emilie Zhang
+Copyright (c) 2022 Emilie Zhang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
