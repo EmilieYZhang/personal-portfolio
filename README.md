@@ -170,6 +170,7 @@ Each of the following tasks are suggestions and/or programming best practices.
 - [Google Maps API](https://developers.google.com/maps)
 - [Bootstrap](https://getbootstrap.com)
 - [FontsGeek](https://fontsgeek.com)
+- [jonasal/nginx-certbot](https://hub.docker.com/r/jonasal/nginx-certbot) for generating Nginx certifications from LetsEncrypt
 
 ## Authors
 * Emilie Zhang ([EmilieYZhang](https://github.com/EmilieYZhang))
