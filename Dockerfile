@@ -1,10 +1,10 @@
-# Original: telling Docker to use official CentOS Stream 8 image
+# Original: telling Docker to use official CentOS Stream 8 image (back when it was using a DigitalOcean Droplet)
 # FROM quay.io/centos/centos:stream8
 
 # Improvement: Better base image using python
 FROM python:3.9-slim-buster
 
-# installing oython 3.9
+# installing python 3.9
 # RUN dnf install -y python3.9
 
 # Improvement: Utilize Docker Layer Caching
