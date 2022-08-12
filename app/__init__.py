@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
-import re
+import re # re module is for the regex used for email validation
 
 load_dotenv()  # Loads the environment variables from the .env file
 
