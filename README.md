@@ -136,7 +136,7 @@ You should get a response like this in the terminal:
 
 You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
 
-*Note: The portfolio site will work on your local machine while you have it running inside of your terminal. The portfolio is also hosted in a DigitalOcean droplet and deployed with Docker containers, thus accessible at https://emilieportfolio.duckdns.org/* 
+*Note: The portfolio site will work on your local machine while you have it running inside of your terminal. The portfolio is also hosted in a DigitalOcean droplet and deployed with Docker containers.* 
 
 ## Contributing
 
