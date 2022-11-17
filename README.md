@@ -6,7 +6,7 @@ Previously, I created a team portfolio with TEAM PYTHONIC from Pod 22.SUM.21 of 
 
 Week 2 and onwards, this repository was forked from the original repo for customization of a personal portfolio and using production engineering best practices to host, scale, CI/CD and troubleshoot the application. 
 
-In addition, this portfolio is hosted on a CentOS Stream 8 Oracle VPS instance. Accessible at: https://emiliezhang.duckdns.org/
+In addition, this portfolio is hosted on a CentOS Stream 8 Oracle VPS instance.
 
 #### Tech stack
 __Backend:__ Flask Python, Jinja, json, Google Maps API, MySQL database, POST/GET/DELETE endpoints
