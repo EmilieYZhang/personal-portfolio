@@ -6,7 +6,7 @@ Previously, I created a team portfolio with TEAM PYTHONIC from Pod 22.SUM.21 of 
 
 Week 2 and onwards, this repository was forked from the original repo for customization of a personal portfolio and using production engineering best practices to host, scale, CI/CD and troubleshoot the application. 
 
-In addition, this portfolio is hosted on a CentOS Stream 8 Oracle VPS instance.
+In addition, this portfolio is hosted on a CentOS Stream 8 Oracle VPS instance. Accessible at: https://emiliezhang.duckdns.org/
 
 #### Tech stack
 __Backend:__ Flask Python, Jinja, json, Google Maps API, MySQL database, POST/GET/DELETE endpoints
@@ -136,7 +136,7 @@ You should get a response like this in the terminal:
 
 You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
 
-*Note: The portfolio site will work on your local machine while you have it running inside of your terminal. The portfolio is also hosted in a DigitalOcean droplet and deployed with Docker containers.* 
+*Note: The portfolio site will work on your local machine while you have it running inside of your terminal. The portfolio is also hosted in a DigitalOcean droplet and deployed with Docker containers. See it in production: https://emiliezhang.duckdns.org/* 
 
 ## Contributing
 
